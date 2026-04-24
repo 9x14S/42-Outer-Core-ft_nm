@@ -1,0 +1,7 @@
+en.subject.pdf
+ft_nm
+*.o
+*.d
+*.a
+*.gch
+testing/
