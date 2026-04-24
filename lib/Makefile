@@ -1,7 +1,7 @@
 .PHONY : all re clean fclean test
 
 TARGET  := libft_nm.a
-BIN_DIR := ../bin
+OBJ_DIR := ../obj
 INC_DIR := ../include
 
 CC      ?= /usr/bin/cc
@@ -9,16 +9,16 @@ CFLAGS  ?= -MMD -I$(INC_DIR) -Wall -Wextra -Werror -g
 
 SRCS    := 
 OBJS    := $(SRCS:.c=.o)
-OBJS    := $(addprefix $(BIN_DIR)/,$(OBJS))
+OBJS    := $(addprefix $(OBJ_DIR)/,$(OBJS))
 DEPS    := $(OBJS:.o=.d)
 
 -include $(DEPS)
-all: $(BIN_DIR) $(TARGET)
+all: $(OBJ_DIR) $(TARGET)
 
-$(BIN_DIR):
+$(OBJ_DIR):
 	$(MKDIR_P) $@
 
-$(BIN_DIR)/%.o: %.c
+$(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -o $@ $^ -c
 
 $(TARGET): $(OBJS)
