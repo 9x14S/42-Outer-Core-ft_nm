@@ -19,7 +19,7 @@ DEPS     := $(OBJS:.o=.d)
 all: $(OBJ_DIR) $(TARGET)
 
 $(OBJ_DIR):
-	$(MKDIR_P) $@
+	mkdir -p $@
 
 $(TARGET): $(LIB) $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
